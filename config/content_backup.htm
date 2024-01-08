@@ -10,7 +10,8 @@
 <p>(41223116) <a href="https://github.com/41223116/cp2023">https://github.com/41223116/cp2023</a></p>
 <p>(41223118) <a href="https://github.com/zhe41223118/cp2023">https://github.com/zhe41223118/cp2023</a> </p>
 <p>(41223125) <a href="https://github.com/Linjiahong41223125/cp2023">https://github.com/Linjiahong41223125/cp2023</a></p>
-<p>(40923137) <a href="https://github.com/fws40923137/cp2023">https://github.com/fws40923137/cp2023</a></p><h1>INFO</h1>
+<p>(40923137) <a href="https://github.com/fws40923137/cp2023">https://github.com/fws40923137/cp2023</a></p>
+<h1>INFO</h1>
 <p>參考來源:<a href="https://zh.wikipedia.org/zh-tw/%E7%89%9B%E9%A0%93%E7%AC%AC%E4%BA%8C%E9%81%8B%E5%8B%95%E5%AE%9A%E5%BE%8B">牛頓第二運動定律百科</a></p>
 <p>牛頓的第二運動定律描述了物體的運動與受到的力的關係。</p>
 <p>這個定律可以用以下數學公式表示：<strong><span class="math math-inline" style="background-color: #ffff99;"><span class="katex"><span aria-hidden="true" class="katex-html"><span class="base"><span class="mord mathnormal">F</span><span class="mspace"></span><span class="mrel">=</span><span class="mspace"></span></span><span class="base"><span class="strut"></span><span class="mord mathnormal">ma</span></span></span></span></span></strong></p>
@@ -23,7 +24,7 @@
 <li><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi><br/></mi></mrow></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut"></span><span class="mord mathnormal">a</span></span></span></span></span> 代表物體的加速度（單位：米每平方秒，<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi><br/></mi></mrow></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut"></span><span class="mord mathnormal">m</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal">s(平方</span></span></span></span></span></span>）。</li>
 </ul>
 <p><span>牛頓第二定律是一個涉及到物體運動的理論，根據這定律，任意物體的運動所出現的改變，都是源自於外力的施加於這物體。這理論導致了</span><a class="mw-redirect" href="https://zh.wikipedia.org/wiki/%E7%B6%93%E5%85%B8%E5%8A%9B%E5%AD%B8" title="古典力學">古典力學</a><span>的誕生，是科學史的一個里程碑，先前只是描述自然現象的理論不再被採納，取而代之的是這個創立了一種理性的</span><a class="mw-redirect" href="https://zh.wikipedia.org/wiki/%E5%9B%A0%E6%9E%9C%E9%97%9C%E4%BF%82" title="因果關係">因果關係</a><span>架構的新理論。實際而言，古典力學的嚴格的因果屬性，對於西方思想與文明的發展，產生了很大的影響。</span></p>
-<h1>mass-spring-damper </h1>
+<h1>mass-spring-damper</h1>
 <p><span>參考來源：<a href="https://en.wikipedia.org/wiki/Mass-spring-damper_model">Mass-spring-damper model</a></span></p>
 <p><strong><span style="background-color: #ffff99;">質點-彈簧-阻尼器 </span></strong><span style="background-color: #ffff99;"><span style="background-color: #ffffff;">，<span>是一種簡單但重要的動力學系統，用於描述物體在外力作用下的振動行為。這種系統常常被用來分析機械振動、結構動力學等領域。</span></span></span></p>
 <ol>
@@ -45,11 +46,44 @@
 <p>這種系統在工程學、物理學和控制理論等領域中有廣泛的應用，並且是學習動態系統和控制理論的基礎之一。</p>
 <p></p>
 <p><img alt="mass connected to the ground with a spring and damper in parallel" caption="false" height="300" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Mass_spring_damper.svg/220px-Mass_spring_damper.svg.png" width="400"/></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p><h1>replit</h1>
+<h1>Euler's Method</h1>
+<p><span>數值分析相關資料：</span></p>
+<p><span>歐拉法（Euler's Method）是一種用於數值解常微分方程（ODEs）的基本數值分析方法。該方法由Leonhard Euler提出，被廣泛應用於解析度較差的情況下的ODEs，尤其是當找不到解析解時。</span></p>
+<h3>歐拉法的基本思想：</h3>
+<ol>
+<li><strong>離散化：</strong> 將自變量（通常是時間）劃分成小的步長。</li>
+<li><strong>近似：</strong> 使用當前的微分值（斜率）來估計下一個時間步長的函數值。</li>
+</ol>
+<p><span><img alt="" height="260" src="/images/0002.png" width="567"/></span></p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">def euler_method(f, y0, t0, tn, h):
+    """
+    使用歐拉法進行數值積分
+
+    Parameters:
+    - f: 函數 f(t, y) 表示 ODE 的右側
+    - y0: 初值
+    - t0: 初始時間
+    - tn: 終止時間
+    - h: 步長
+
+    Returns:
+    - t_values: 時間值的列表
+    - y_values: 對應的函數值列表
+    """
+    t_values = [t0]
+    y_values = [y0]
+    t = t0
+    y = y0
+
+    while t &lt; tn:
+        y = y + h * f(t, y)
+        t = t + h
+        t_values.append(t)
+        y_values.append(y)
+
+    return t_values, y_values
+</pre>
+<h1>replit</h1>
 <p>以下分頁面內都有講解如何架設replit網站編輯，都有一步步教學如何架設和編輯</p>
 <p><span>如想快速了解點<strong><a href="https://nfuedu-my.sharepoint.com/:v:/r/personal/yen_nfu_edu_tw/Documents/2023/cp2023/mp4/cp2023_w2_%E8%AA%AA%E6%98%8E%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%80%8B%E4%BA%BA%E5%80%89%E5%84%B2%E4%B8%A6%E4%BD%BF%E7%94%A8%20Replit%20%E5%8D%94%E5%8A%A9%E7%B6%AD%E8%AD%B7%E5%85%A7%E5%AE%B9.mp4?csf=1&amp;web=1&amp;e=n7H8KR&amp;nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D">這裡</a></strong>有說明如何建立個人倉儲並使用 Replit 協助維護內容</span></p>
 <p><span><span>                    ，</span>而<strong><a href="https://nfuedu-my.sharepoint.com/:v:/r/personal/yen_nfu_edu_tw/Documents/2023/cp2023/mp4/cp2023_w2_%E5%88%A9%E7%94%A8%20replit%20%E7%B7%A8%E8%BC%AF%E7%B6%B2%E9%A0%81%E5%85%A7%E5%AE%B9.mp4?csf=1&amp;web=1&amp;e=ypSYi9&amp;nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D">這邊</a></strong>有教如何利用 replit 編輯網頁內容</span></p>
@@ -65,14 +99,16 @@
 <p><span style="background-color: #ffff00;">設定好後就可以<strong><span style="color: #0000ff;">Create repository</span></strong>，這樣你的一個倉儲就創建完畢了</span></p>
 <p><span style="background-color: #ffffff;">(註:在一個倉儲帳號下可以擁有多個倉儲)</span></p>
 <p><span style="background-color: #ccffcc; color: #0000ff;">後話:</span></p>
-<p><span style="background-color: #ccffcc; color: #0000ff;">倉儲雖然好用但本身在上傳上有100MB限制(可用OneDrive解決)來付費解鎖，</span><span style="background-color: #ccffcc; color: #0000ff;">當然本身是創建人想靠其來賺取使用者的投資，想沒有這個限制可以無限的上傳MB龐大的檔，</span><span style="background-color: #ccffcc; color: #0000ff;">很簡單的解決方式不是投資下去就是自己架設倉儲網站，自己架設的有什麼限制都是自己說的算，</span><span style="background-color: #ccffcc; color: #0000ff;">但推送大檔案，會使之後的推送都需重複推送大檔，</span><span style="background-color: #ccffcc; color: #0000ff;">進而使傳輸一直有負擔，或因檔案過大使之後的acp都受阻，</span><span style="background-color: #ccffcc; color: #0000ff;">而延伸出的需刪除上傳或壓縮檔案的問題，</span><span style="background-color: #ccffcc; color: #0000ff;">使用<strong>onedrive</strong>(上限5TB)，</span><span style="background-color: #ccffcc; color: #0000ff;">將檔案透過連結下載的方式就能繞過倉儲的上傳限制。 (註:41223118留)</span></p><h2>step1</h2>
+<p><span style="background-color: #ccffcc; color: #0000ff;">倉儲雖然好用但本身在上傳上有100MB限制(可用OneDrive解決)來付費解鎖，</span><span style="background-color: #ccffcc; color: #0000ff;">當然本身是創建人想靠其來賺取使用者的投資，想沒有這個限制可以無限的上傳MB龐大的檔，</span><span style="background-color: #ccffcc; color: #0000ff;">很簡單的解決方式不是投資下去就是自己架設倉儲網站，自己架設的有什麼限制都是自己說的算，</span><span style="background-color: #ccffcc; color: #0000ff;">但推送大檔案，會使之後的推送都需重複推送大檔，</span><span style="background-color: #ccffcc; color: #0000ff;">進而使傳輸一直有負擔，或因檔案過大使之後的acp都受阻，</span><span style="background-color: #ccffcc; color: #0000ff;">而延伸出的需刪除上傳或壓縮檔案的問題，</span><span style="background-color: #ccffcc; color: #0000ff;">使用<strong>onedrive</strong>(上限5TB)，</span><span style="background-color: #ccffcc; color: #0000ff;">將檔案透過連結下載的方式就能繞過倉儲的上傳限制。 (註:41223118留)</span></p>
+<h2>step1</h2>
 <p>將剛創建的倉儲網址複製</p>
 <p>來到replit，登錄後點擊(左上角)<span style="color: #0000ff;"><strong>Create a Repl</strong><span style="color: #000000;">後<span style="color: #0000ff;"><strong>Import from GitHub</strong><span style="color: #000000;">將網址貼上</span></span></span></span></p>
 <p><span style="color: #0000ff;"><span style="color: #000000;"><img alt="" height="471" src="/images/546.png" width="606"/></span></span></p>
 <p class="css-scxoy8">or</p>
 <p class="css-scxoy8"><img alt="" height="715" src="/images/0001.png" width="727"/></p>
 <p class="css-scxoy8"><span style="color: #000000;">在上圖貼上網址後，底下會出現</span><span style="color: #ff0000;"><strong style="color: #ff0000;">Change<span style="color: #000000;">，它</span></strong></span>可以選擇你要使用的程式 <span style="color: #ff0000;"><strong>(python)</strong></span></p>
-<p class="css-scxoy8">這樣就可以點右下<span><strong><span style="color: #0000ff;">Import from GitHub</span></strong>新建了</span></p><h2>step2</h2>
+<p class="css-scxoy8">這樣就可以點右下<span><strong><span style="color: #0000ff;">Import from GitHub</span></strong>新建了</span></p>
+<h2>step2</h2>
 <p>完成step1後會跑出這個畫面</p>
 <p><img alt="" height="298" src="/images/333.png" width="800"/></p>
 <p><strong><span style="background-color: #ffff00;">右方<span style="color: #0000ff;">Configure the Run Command</span>下輸入<span style="color: #ff0000;">python3 main.py</span>後<span style="color: #0000ff;">Done</span></span></strong></p>
@@ -86,7 +122,8 @@
 <p><img alt="" height="444" src="/images/963.png" width="774"/></p>
 <p><span style="background-color: #ffff00;">直接<span style="color: #0000ff;"><strong>New tab</strong></span>右鍵新分頁打開，就可到達網站，之後<strong><span style="color: #0000ff;">Login</span></strong>(預設密碼皆為<strong><span style="color: #ff0000;">admin</span></strong>)</span></p>
 <p><span style="background-color: #ffff00;"><span style="background-color: #ffffff; color: #000000;">到這裡已完成大半，已經可以編輯網站，接下來是密碼和推送的步驟。</span></span></p>
-<p></p><h2>step3</h2>
+<p></p>
+<h2>step3</h2>
 <p><span style="background-color: #ffffff;">前提:這裡將會提到怎麼:</span><strong><span style="background-color: #ffff00;">設定/隱藏網站密碼</span></strong><strong><span style="background-color: #ffff00;"><span style="background-color: #ffffff;">。</span></span></strong></p>
 <p>續step2後，登錄網站，在上方的目錄選擇<span style="color: #0000ff;"><strong>config</strong></span>，可以變更網站名稱及密碼</p>
 <p>輸入或更改名稱後<span style="color: #0000ff;">send</span>，名稱只要推送後就能更改了，先講密碼的步驟。</p>
@@ -99,7 +136,8 @@
 <p><span style="background-color: #ffff00;">選擇<span style="color: #ff0000;"><strong>+New Secret</strong></span><span style="background-color: #ffffff;">，如圖:</span></span></p>
 <p><span style="background-color: #ffff00;"><span style="background-color: #ffffff;"><img alt="" height="197" src="/images/0003.png" width="710"/></span></span></p>
 <p><span style="background-color: #ffff00;">左側為名稱(自行命名)，右側將剛複製的亂碼貼上</span></p>
-<p><span style="background-color: #ffff00;">之後<span style="color: #0000ff;">Add Secret</span>，密碼就變更為剛自己所設定的</span></p><h2>step4</h2>
+<p><span style="background-color: #ffff00;">之後<span style="color: #0000ff;">Add Secret</span>，密碼就變更為剛自己所設定的</span></p>
+<h2>step4</h2>
 <p><strong><span>前提:這裡會提到怎麼<span style="background-color: #ffff00;">將</span></span></strong><strong><span><span style="background-color: #ffff00;">資料推送至倉儲</span>。</span></strong></p>
 <p>續step2後，現在已經可以自由的編輯網站，但只有這樣還不夠，還要將資料推送至自己的倉儲。</p>
 <p>在<span style="background-color: #ffff00;">左側<strong><span style="color: #0000ff;">Tools</span></strong></span>或<span style="background-color: #ffff00;">右邊搜尋找到<strong><span style="color: #0000ff;">Git</span></strong></span>，如圖下：</p>
@@ -108,7 +146,8 @@
 <p><span style="background-color: #ffff00;">圖上會有<span style="color: #0000ff;"><strong>Message</strong></span>，在這輸入剛才所更改的內容大綱，之後下方會有</span><span><span style="background-color: #ffff00;"><span style="color: #0000ff;"><strong>Stage and commit all changes</strong></span>藍條亮起</span>。</span><span>點下去後稍等一下，會出現：</span></p>
 <p><span><img alt="" height="579" src="/images/1111.png" width="727"/></span></p>
 <p>直接Push，這樣如果沒有其他意外，到倉儲看就會有鋼材所新增的內容了。</p>
-<p></p><h2>補充</h2>
+<p></p>
+<h2>補充</h2>
 <p>這裡會補充在操作時常看到疑問。</p>
 <p><img alt="" height="278" src="/images/00003.png" width="638"/></p>
 <p><span style="background-color: #ffff00;">這個就當他是在問你是否要將剛才的提交與倉儲合併，就選擇勾勾就好。</span></p>
@@ -116,7 +155,8 @@
 <p><span style="background-color: #ffff00;">在上傳時，很多是因為replit的帳號綁定問題，而無法上傳，這裡就請檢察設定這裡是否有綁定倉儲，而如果是以Google帳號登陸replit的也要記得確認Google的是否有綁定。</span></p>
 <p><span style="background-color: #ffff00;">在創建網站時有些人會忘記選擇所要用的程式，導致在之後C程式語言上出現問題，這裡提醒，本課程所建立的網站，所用的程式請都選擇<strong><span style="color: #ff0000;">python</span>。</strong></span></p>
 <p><span style="background-color: #ffff00;"><strong></strong></span></p>
-<p><span style="background-color: #ffffff;"><strong></strong><span style="background-color: #ccffcc;">此外並不是只能用replit才能編輯網站，課程提供的方法還有：使用s.cycu.org(遠端)與<strong><a href="https://zhe41223118.github.io/cp2023/content/w13.html">近端</a></strong>編輯。</span></span></p><h1>gd</h1>
+<p><span style="background-color: #ffffff;"><strong></strong><span style="background-color: #ccffcc;">此外並不是只能用replit才能編輯網站，課程提供的方法還有：使用s.cycu.org(遠端)與<strong><a href="https://zhe41223118.github.io/cp2023/content/w13.html">近端</a></strong>編輯。</span></span></p>
+<h1>gd</h1>
 <p>gd繪圖基本需知請<a href="https://nfuedu.sharepoint.com/:v:/s/CP2023/ETtW9fERkjRHqkXpFnSnI1gBpTjJZADhiN42THZb_W-OcQ?e=YWgQrW&amp;nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D">參考影片</a></p>
 <p>範例程式及結果:</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -266,7 +306,8 @@ int main() {
     return 0;
 }</pre>
 <p><img alt="" height="600" src="/images/hellogd2.png" width="800"/></p>
-<p></p><h1>work</h1>
+<p></p>
+<h1>work</h1>
 <p>所有完成，使用replit跟gd線繪製的成品都在此處</p>
 <p>(最後都有標明為誰的製作和參考)</p>
 <p><strong>範例:</strong></p>
@@ -1177,7 +1218,8 @@ if (outputFile == NULL) {
       gdImageDestroy(im);
       return 0;
   }</pre>
-<p></p><h1>test</h1>
+<p></p>
+<h1>test</h1>
 <p>所有測驗 考試題目/解答都會在這裡</p>
 <h2>w15_test</h2>
 <p><span style="color: #000000;">先下載</span><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/41223118_nfu_edu_tw/EZeGqVtdysZFqCH78Zy75TMByis1Yn4IPmOXCcyIUQDHzw?e=Z5fJk9">這個題目</a></p>
@@ -1195,7 +1237,8 @@ if (outputFile == NULL) {
 <p><span><strong></strong></span></p>
 <p><span><strong></strong></span></p>
 <p><span><strong>2. 列出第二組 ABED 的四條直線與白日中的大圓所相交 (intersect) 的四個點座標</strong></span></p>
-<p></p><h2>exam_test</h2>
+<p></p>
+<h2>exam_test</h2>
 <p>前提 <a href="https://exam.cycu.org/public/code/index.php">https://exam.cycu.org/public/code/index.php</a></p>
 <p>測驗網址需傭有<span style="color: #ff0000;"><strong>ipv6</strong></span>才可進入</p>
 <h3>錯的題目</h3>
@@ -1236,7 +1279,8 @@ if (outputFile == NULL) {
 <p></p>
 <p></p>
 <p></p>
-<p></p><h1>倉儲及網站評分</h1>
+<p></p>
+<h1>倉儲及網站評分</h1>
 <p><span>A: 是否<span>按照進度明確標示倉儲的改版歷程</span></span></p>
 <p><span>B: 是否根據<span> </span><span>IPv4 與 IPv6</span><span> </span>網路環境設定進行作法討論</span></p>
 <p><span>C: 是否就<span><span> </span>Replit、s.cycu.org 與 localhost</span><span> </span>情境下對個人與分組倉儲進行設定操作</span></p>
@@ -1246,7 +1290,8 @@ if (outputFile == NULL) {
 <p><span>G: 是否完成 C 結合 gd 繪圖程式庫, 畫出<span> </span><a href="https://en.wikipedia.org/wiki/Flag_of_China">PROC</a>(<a href="https://en.wikipedia.org/wiki/Flag_of_China#/media/File:Flag_of_China_(construction_sheet).svg">規格</a>),<span> </span><a href="https://en.wikipedia.org/wiki/Flag_of_the_United_Kingdom">United Kingdom</a>(<a href="https://en.wikipedia.org/wiki/Flag_of_the_United_Kingdom#/media/File:Flag_of_the_United_Kingdom_(1-2)_(construction_sheet).svg">規格</a>),<span> </span><a href="https://en.wikipedia.org/wiki/Flag_of_Japan">Japan</a>(<a href="https://en.wikipedia.org/wiki/Flag_of_Japan#/media/File:Construction_sheet_of_the_Japanese_flag_EN.svg">規格</a>)與<span> </span><a href="https://en.wikipedia.org/wiki/Flag_of_South_Korea">South Korea</a>(<a href="https://en.wikipedia.org/wiki/Flag_of_South_Korea#/media/File:Flag_of_South_Korea_(construction_sheet).svg">規格</a>) Flags</span></p>
 <p><span>H: 是否完成 w16 Final Project</span></p>
 <p><span></span></p>
-<p><span style="background-color: #ccffcc;">以上為導師網站會評分主要幾點內容，請檢察是否都有完成或完成了，最好也統整成幾大類出來。</span></p><h1>個人學習心得</h1>
+<p><span style="background-color: #ccffcc;">以上為導師網站會評分主要幾點內容，請檢察是否都有完成或完成了，最好也統整成幾大類出來。</span></p>
+<h1>個人學習心得</h1>
 <p><span><strong>41223111(組長)：</strong>這堂課帶給了我許多收益，從一開始的什麼都不會到開始了解了一點東西，雖然上課還是聽不懂，但老師講的東西基本上都有完成，這也要感謝我同組的成員幫我的忙，雖然方法可能跟老師做的有些許不同，可是能夠用不同的方式完成老師的功課也是種不錯的學習方式吧！</span></p>
 <p><span><strong>41223102：</strong>第一次接觸這門課程的時候，還是很感興趣的，但漸漸的學的東西越來越深入，也感覺到有些力不從心，加上自己本身的電腦已經是到壽終正寢的部分，只能委屈一下手機，使用手機努力完成老師安排的作業。還好同組的組員們人都很好，還願意在下課後在教我把作業用出來，雖然最後還是蠻多作業沒有趕出來，但我會爭取在期末之前補齊作業。最後也謝謝老師這一個學期的教導。</span></p>
 <p><span><strong>41223103：</strong></span>在這學期的計算機概論中，我學習到了許多平時不太會接觸到的技能。比如，在GitHub上建立網路倉儲，以及在<span style="background-color: #ffff00;">Replit</span>網站平台上使用C++進行繪圖。整體而言，這些技能讓我覺得挺有趣的。</p>
@@ -1256,7 +1301,8 @@ if (outputFile == NULL) {
 <p><span><strong>41223116：</strong>初次接觸程式語言的我，踏入了全新的大門，新鮮的事物轟炸著我對世界的認知，同時也摧殘著我的大腦，茫然的走著並慶幸有同學拉著我前進，也意識到了即將被拋下的我，需要努力學習這堂課，學到很多東西，都是前所未有的知識，也了解了世界持續前進著，我也追趕著科技的腳步</span></p>
 <p><span><strong>41223118：</strong>這門課對於只想者怎麼過的人來說無疑都是:ctre+c+v，問了GTB也是複製貼上，但有知道去問GTB，認為跟只會複製貼上人要好了，至少這個人知道要問，導師對我們新生評價，就是都太不主動了，在課程上一有什麼不懂的就應該要主動提問，這在課堂前期是完全沒看到的，課程中出現許多英文，很多人都說看不懂，但像老師說的，英文不會沒關係，英文辦法一天一次記起來，就一天一天幾個個單字幾個程式碼祭一下，做個小抄不會時拿出來看一下，就像倉儲一樣，一點一滴的堆積，最後出來的這些沉澱都是自己的。</span></p>
 <p><span><strong>41223125：</strong>現在的課程對我來說完全的陌生，現在我還是有許多的電腦軟體知識不會，而向前的速度快到把我拋到後頭，但還是慶幸在考試時我不是什麼題目都看不懂，起碼筆試是這樣，今後還有漫長的知識要學習。</span></p>
-<p><span><strong>40923137：</strong></span></p><h1>file</h1>
+<p><span><strong>40923137：</strong></span></p>
+<h1>file</h1>
 <p><span style="color: #0000ff;"><strong>檔案總攬 </strong></span></p>
 <p><span style="color: #0000ff;"><span style="color: #000000;">必備三個檔案:</span></span></p>
 <p><span style="color: #0000ff;"><span style="color: #000000;"><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/41223118_nfu_edu_tw/Eec_-ybdlwJNivkSRcOLz4MB8Eh2HFpms2CrgpKLt8hOcw?e=cxxhKz">tinyc.7z</a> <span>(</span><span>Tiny C Compiler 編譯 C 程式, 包含 gd 與 gnuplot)</span></span></span></p>
@@ -1267,7 +1313,8 @@ if (outputFile == NULL) {
 <p><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/41223118_nfu_edu_tw/ESq5mIzxtwtGvzJ7KAjQqFIBxvfkE2Yo3dg3CKTdb9rNtw?e=sLSrTj">tcc_w_gd_raylib_SDL2.7z</a> (新版tcc)</p>
 <p><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/41223118_nfu_edu_tw/EehBRm15kNVDheyK--tMFSoBq3wzntYb0d6d4prAQ_0l7g?e=6Intph">Run-Away_C_SDL2_game.7z</a> (GAME)</p>
 <p><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/41223118_nfu_edu_tw/EZeGqVtdysZFqCH78Zy75TMByis1Yn4IPmOXCcyIUQDHzw?e=FUvaIM">roc_list_coord_flag.7z</a> (w15測驗題目)</p>
-<p></p><h1>Brython</h1>
+<p></p>
+<h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
 <p style="padding-left: 30px;"><a href="https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d">https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d</a></p>
